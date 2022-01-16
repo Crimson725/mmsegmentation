@@ -278,8 +278,10 @@ class BaseSegmentor(BaseModule, metaclass=ABCMeta):
         if show:
             mmcv.imshow(img, win_name, wait_time)
         if out_file is not None:
-            mmcv.imwrite(img, out_file)
-
+            # 叠加
+            # mmcv.imwrite(img, out_file)
+            # 无叠加
+            mmcv.imwrite(color_seg, out_file)
         if not (show or out_file):
             warnings.warn('show==False and out_file is not specified, only '
                           'result image will be returned')
